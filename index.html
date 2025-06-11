@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+       <meta name="theme-color" content="#AA66CC"/>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <meta http-equiv="x-ua-compatible" content="ie=edge">
+       <title>Agendamento Sopro</title>
+       <link rel="shortcut icon" type="image/png" href="logoOriginal.png"/>
+       <!-- Font Awesome -->
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+       <!-- Google Fonts Roboto -->
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+       <!-- Bootstrap core CSS -->
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+       <!-- Material Design Bootstrap -->
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+       <!-- Your custom styles (optional) -->
+        <link rel="stylesheet" href="https://fonts.google.com/icons?selected=Material+Icons:more_vert:&icon.size=24&icon.color=%231f1f1f">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+
+   </head>
+
+   <style>
+    
+
+.myBtn {
+    position: fixed;
+    bottom: 20%;
+    right: 5%;
+    z-index: 0;
+    border-radius: 50%;
+    padding: 4%;
+    
+  }
+  .btn-pesquisa {
+    position: fixed;
+    bottom: 30%;
+    right: 5%;
+    z-index: 0;
+    border-radius: 50%;
+    padding: 4%;
+    
+  }
+  .menu {
+    position: fixed;
+    bottom: 2%;
+    right: 0%;
+    left: 22%;
+    z-index: 0;
+    border-radius: 50%;
+    padding: 2%;
+    width: 60%;
+    
+  }
+    .nav {
+        transition-delay: 2s, 4ms;
+        background-color: #400344;
+        border-radius: 2rem;
+        
+    }
+    .pesquisa {
+    position: fixed;
+    top: 2%;
+    z-index: 999;
+    padding: 2%;
+    right: 1%;
+    width: 100%;
+
+
+    
+  }
+ 
+   </style>
+
+   <body>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col"></div>   
+            <div class="col-10">
+                    <div id="resultado"></div>
+            </div>
+            <div class="col"></div>   
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+       
+        <div style="margin-bottom: 1em; border-radius: 1rem;" class="row cores text-center menu bg-secondary text-light">
+            
+            <div class="col">
+                <a class="nav-link menu-item" id="concluidos">
+                    <i class="fas fa-1x fa-check-double"></i><br>
+                    
+                </a>
+            </div>    
+            <div class="col">
+                
+                <a class="nav-link p-2 menu-item nav " id="agendados">
+                    <i class="fas fa-1x fa-address-book"></i><br>
+                </a>
+            </div>
+            <div class="col">
+                <a class="nav-link menu-item" id="analise">
+                    <i class="fas fa-1x fa-chart-area"></i><br>
+                </a>
+            </div>
+               
+          
+        </div>        
+
+        <!-- Modal -->
+        <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog" role="document">
+               <div style="background-color: #fff;"class="modal-content">
+                   <div class="modal-header">
+                       <h5 class="modal-title" id="exampleModalLabel">Agendamento</h5>
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+                   </div>
+                   <div class="modal-body">
+                    <form id="cadastroForm">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="data" >Data</label><br>
+                                    <input  id="data" type="date"class="form-control"><br>
+                                </div>
+                                <div class="col">
+                                    <label for="hora" >Hora</label><br>
+                                    <input  id="hora" type="time"class="form-control"><br>
+                                </div>
+                            </div>
+                            <div class="md-form">
+                               <input type="text" id="cliente" class="form-control">
+                               <label for="cliente">Cliente</label>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="md-form">
+                                        <input type="tel" id="celular" class="form-control">
+                                        <label for="celular">Celular</label>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="md-form">
+                                        <input type="text" id="servico" class="form-control">
+                                        <label for="servico">Serviço</label>
+                                     </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="md-form">
+                                        <input type="tel" id="valor" class="form-control">
+                                        <label for="valor">Valor</label>
+                                     </div>
+                                </div>
+                                <div class="col">
+                                    <div class="md-form">
+                                        <input type="tel" id="entrada" class="form-control">
+                                        <label for="entrada">Entrada</label>
+                                     </div>
+                                </div>
+                            </div>    
+                                
+                            
+                            <div class="md-form">
+                               <input type="text" id="cores" class="form-control">
+                               <label for="cores">Cores</label>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="md-form">
+                                        <input type="text" id="bairro" class="form-control">
+                                        <label for="bairro">Bairro</label>
+                                     </div>
+                                </div>
+                                <div class="col">
+                                    <div class="md-form">
+                                        <input type="text" id="cidade" class="form-control">
+                                        <label for="cidade">Cidade</label>
+                                     </div>
+                                </div>
+                            </div>
+                        </form>  
+                                                      
+                            
+                        </div>
+                    </div>
+                   </div>
+                   <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                       <button style="display: block;" id="salvar" type="button" class="btn btn-primary">Agendar</button>
+                       <button style="display: none;" id="btn-carregando" class="btn btn-primary" type="button" disabled>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Carregando...
+                      </button>
+                   </div>
+               </div>
+           </div>
+        </div>
+
+        
+        <!-- Modal Pesquisa -->
+        <div class="modal fade" id="basicExampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <h5 class="modal-title" id="exampleModalLabel">Pesquisar</h5>
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+                   </div>
+                   <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <label>Data Inicio:</label>
+                                <input type="date" id="dataInicio" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label>Data Fim:</label>
+                       <input type="date" id="dataFim" class="form-control">
+                            </div>
+                        </div>
+                       
+                       
+                   </div>
+                   <div class="modal-footer">
+                       <button id="pesquisar" type="button" class="btn btn-primary">
+                        <i class="fab  fa-sistrix"></i>
+                        Buscar
+                    </button>
+                   </div>
+               </div>
+           </div>
+        </div>
+        
+
+        <button id="adicionar" type="button" class="btn text-light myBtn btn-secondary" data-toggle="modal" data-target="#basicExampleModal">
+            <i class="fas fa-2x fa-plus"></i>
+         </button>
+         <button type="button" class="btn text-light btn-pesquisa btn-primary" data-toggle="modal" data-target="#basicExampleModal2">
+            <i class="fab fa-2x fa-sistrix"></i>
+        </button>
+        
+    </div>
+     
+      
+       <!-- End your project here-->
+       <!-- jQuery -->
+       <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+       <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <!-- Bootstrap tooltips -->
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+       <!-- Bootstrap core JavaScript -->
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+       <!-- MDB core JavaScript -->
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+       <!-- Your custom scripts (optional) -->
+       <script src="alertas.js"></script>
+       <script src="script.js"></script>
+       <script src="mask.js"></script>
+
+   </body>
+</html>
