@@ -2,7 +2,7 @@
 include_once('conexao.php');
 
 
-$sql="SELECT date_format(data, '%d/%m/%Y' ) as dataformatada, date_format(hora,'%H:%i') as horaformatada,id_agenda,cliente,servico,valor,restante,cores,bairro,cidade,situacao FROM agenda WHERE situacao=1 ORDER BY data" ;
+$sql="SELECT date_format(data, '%d/%m/%Y' ) as dataformatada, date_format(hora,'%H:%i') as horaformatada,id_agenda,cliente,servico,valor,restante,cores,bairro,cidade,situacao FROM agenda WHERE situacao=1 ORDER BY data desc limit 10"; ;
 $resultado = mysqli_query($conn,$sql);
 
 while($linha=mysqli_fetch_assoc($resultado)){
@@ -38,6 +38,8 @@ while($linha=mysqli_fetch_assoc($resultado)){
                            
                      </div>
                      </div>
+                     <br>
+                     <br>
                      <br>
 
              
