@@ -86,7 +86,8 @@ $(document).ready(function () {
 
         },
         success:function(data){
-          $("#resultado").html(data);
+          
+          $("#resultado").html('<h3>Festas Concluídas</h3><hr>'+data);
         },
         error: function(result) {
           alertConfirm('error','Erro','Entra em contato com o suporte');
@@ -107,7 +108,6 @@ $(document).ready(function () {
             text:mensagem,
             showConfirmButton: false,
             timer: time,
-            timerProgressBar: true,
           })
     
        };

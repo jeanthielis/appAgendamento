@@ -22,7 +22,16 @@
    </head>
 
    <style>
-    
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ @keyframes waterFill {
+            from { height: 0%; }
+            to { height: 100%; }
+        }
 
 .myBtn {
     position: fixed;
@@ -33,6 +42,48 @@
     padding: 4%;
     
   }
+  
+  :root {
+            --primary-color: #e08df5;
+            --secondary-color: #000000;
+            --accent-color: #7a3403;
+            --light-color: #ecf0f1;
+            --dark-color: #7f7703;
+            --success-color: #025e28;
+            --danger-color: #e74c3c;
+            --info-color: #3498db;
+        }
+         .bordaRosa {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        .bordaVerde {
+            border-color: var(--success-color);
+            color: var(--success-color);
+        }
+        .bordaAzul {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+
+        }
+        .bordaLaranja {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+        .bordaRoxa {
+            border-color: var(--dark-color);
+            color: var(--dark-color);
+        }
+        .bordaVermelha {
+            border-color: var(--danger-color);
+            color: var(--danger-color);
+        }
+        .bordaInfo {
+            border-color: var(--info-color);
+            color: var(--info-color);
+        }
+
+
   .btn-pesquisa {
     position: fixed;
     bottom: 40%;
@@ -70,14 +121,16 @@
   }
   .bordaAnalise{
     border-style: solid;
-    box-shadow: #1300146d 0px 0px 5px;
-    border-color: #c811d16d;
+    box-shadow: #0e0d0e6d 0px 0px 5px;
     border-top: transparent;
     border-bottom: transparent;
     border-right: transparent;
-    border-width: 10px;
-    border-radius: 1rem;
+    border-width: 5px;
+    border-radius: 0.5rem;
+    width: 100%;
+    ;
   }
+
  
    </style>
 
@@ -87,7 +140,7 @@
         <div class="row">
             <div class="col"></div>   
             <div class="col-10">
-                    <div id="resultado"></div>
+                <div id="resultado"></div>
             </div>
             <div class="col"></div>   
 

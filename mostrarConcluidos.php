@@ -8,9 +8,8 @@ $resultado = mysqli_query($conn,$sql);
 while($linha=mysqli_fetch_assoc($resultado)){
 ?>            
               
-
-                     <div class="card text-dark" >
-                     <i class=" position-absolute text-success fas fa-check m-1 fa-2x "></i>
+       
+                     <div class="card bordaAnalise bordaVerde text-dark" >
                      <div class="card-body">
                      <p class="card-title text-center">
                             <?php echo $linha['cliente']?><br>

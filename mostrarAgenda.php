@@ -43,7 +43,7 @@ while($linha=mysqli_fetch_assoc($resultado)){
 ?>            <br>
               
                      
-                     <div style="border-radius:1rem;" class="card text-dark" >
+                     <div  class="card bordaAnalise bordaRosa text-dark" >
                             <div class="card-body">
                                    <p class="card-title text-center">
                                           <strong><?php echo $linha['cliente']?><br></strong>
@@ -52,7 +52,7 @@ while($linha=mysqli_fetch_assoc($resultado)){
                                    </p>
                                    <p class="card-text text-dark">
                                           <strong>Serviços:</strong> <?php echo $linha['servico']?><br> 
-                                          <strong>Cores:</strong><label contenteditable=”true” ><?php echo $linha['cores']?></label><br>  
+                                          <strong>Cores:</strong><?php echo $linha['cores']?><br>  
                                           <strong>Valor: </strong> <?php echo 'R$'.number_format($linha['valor'],2,',','.')?> - <strong>Restante:</strong><?php echo 'R$'.number_format($linha['restante'],2,',','.')?><br>
                                           <strong>Local: </strong> <?php echo $linha['bairro']?> - <?php echo $linha['cidade']?><br>
                                           <strong>Celular: </strong> <?php echo $linha['celular']?> 
