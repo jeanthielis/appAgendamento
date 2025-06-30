@@ -75,6 +75,24 @@ $(document).ready(function () {
  
    };
 
+   function mostrarDespesa(){
+    $.ajax({
+        url:"despesa.html",
+        beforeSend:function(){
+          $("#resultado").html('<div class="text-center text-secondary"><div class="spinner-border" role="status"><span class="visually-hidden"></span></div><br>Carregando...</div>');
+
+        },
+        success:function(data){
+            $("#resultado").html(data);
+           },
+        error: function(result) {
+          alertConfirm('error','Erro','Entra em contato com o suporte');
+      }
+    }); 
+ 
+   };
+
+
  
   $("#celular").mask("+00 00 00000-0000");
 
@@ -98,6 +116,8 @@ $(document).ready(function () {
 
     $(document).on('click','#agendados',function(){mostrarAgenda();})
     $(document).on('click','#analise',function(){mostrarAnalise();})
+    $(document).on('click','#despesa',function(){mostrarDespesa();})
+
 
    
 
@@ -153,6 +173,45 @@ $(document).ready(function () {
         });
      
     });
+
+
+    $(document).on('click','#salvarDespesa',function(){
+      var valorDespesa = $("#valorDespesa").val();
+       var descricaoDespesa = $("#descricaoDespesa").val();
+       var tipoDespesa = $("#tipoDespesa").val();
+       var dados = {valor:valorDespesa,descricao:descricaoDespesa,tipo:tipoDespesa}
+        $.ajax({
+            url:"cadastrarDespesa.php",
+            type:'post',
+            data:dados,
+            dataType:'html',
+            beforeSend:function(){
+              $('#btn-carregando').css("display","block")
+              $('#salvarDespesa').css("display","none")
+
+            },
+            success:function(response){
+             $('#formDespesa')[0].reset();
+             alertConfirm("success","Agendado",false,3000);
+             $('#btn-carregando').css("display","none")
+              $('#salvarDespesa').css("display","block")
+             
+
+
+            },
+            error: function(result) {
+              alertConfirm('error','Erro','Entra em contato com o suporte');
+              $('#carregando').css("display","block")
+              $('#salvarDespesa').css("display","none")
+
+          }
+     
+        });
+     
+    });
+
+
+
   
     $(document).on("click",".deletar",function(){
         var id = this.id;

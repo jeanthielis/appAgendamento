@@ -27,6 +27,89 @@
     padding: 0;
     box-sizing: border-box;
 }
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+}
+
+.form-select {
+    /* Box Model */
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    
+    /* Typography */
+    font-size: 1rem;
+    line-height: 1.5;
+    
+    /* Visual */
+    color: #333;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    
+    /* Interaction */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Focus State */
+.form-select:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Disabled State */
+.form-select:disabled {
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .form-label {
+        color: #f8f9fa;
+    }
+    
+    .form-select {
+        color: #f8f9fa;
+        background-color: #343a40;
+        border-color: #495057;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23f8f9fa' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 576px) {
+    .form-select {
+        padding: 1rem 1.2rem;
+        font-size: 1.1rem;
+        border-radius: 0.75rem;
+    }
+    
+    /* Aumenta o tamanho do toque para dispositivos móveis */
+    .form-select {
+        min-height: 3rem;
+    }
+}
+
+/* Melhoria para iOS */
+@supports (-webkit-touch-callout: none) {
+    .form-select {
+        padding: 1rem 1.2rem;
+    }
+}
 
  @keyframes waterFill {
             from { height: 0%; }
@@ -171,8 +254,12 @@
                     <i class="fas fa-1x fa-chart-area"></i><br>
                 </a>
             </div>
+            <div class="col">
+                <a class="nav-link menu-item" id="despesa">
+                    <i class="fas fa-clipboard-list"></i>
+                </a>
+            </div>
                
-          
         </div>        
 
         <!-- Modal -->

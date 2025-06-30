@@ -1,0 +1,50 @@
+<html>
+    <div class="container py-5 text-center">
+        <h2>Despesas</h2>
+        <button class="btn btn-primary" id="openModalBtn">Cadastrar Despesa</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="despesaModal" tabindex="-1" aria-labelledby="despesaModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="despesaModalLabel">Cadastrar Despesa</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <form id="formDespesa">
+            <div class="modal-body">
+                <div class="mb-3 text-start">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <input type="text" class="form-control" id="descricaoDespesa" name="descricaoDespesa" required>
+                </div>
+                <div class="mb-3 text-start">
+                    <label for="valor" class="form-label">Valor</label>
+                    <input type="number" class="form-control" id="valorDespesa" name="valorDespesa" min="0" step="0.01" required>
+                </div>
+                <div class="mb-3 text-start">
+                    <label for="tipo" class="form-label">Tipo de Despesa</label>
+                    <select class="form-select" id="tipoDespesa" name="tipoDespesa" required>
+                        <option value="">Selecione</option>
+                        <option value="pessoal">Pessoal</option>
+                        <option value="salario">Salário</option>
+                        <option value="empresa">Despesas da Empresa</option>
+                    </select>
+                </div>
+            </div>  
+            <div class="modal-footer">
+              <button style="display: none;" id="btn-carregando" class="btn btn-primary" type="button" disabled>
+              <button id="salvarDespesa"  class="btn btn-primary">Salvar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const despesaModal = new bootstrap.Modal(document.getElementById('despesaModal'));
+        document.getElementById('openModalBtn').onclick = () => despesaModal.show();
+    </script>
+</body>
+</html>
