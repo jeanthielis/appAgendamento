@@ -1,18 +1,18 @@
 <?php
 
-<?php
 include_once('conexao.php');
 
 // Coletar dados do formulário
-$descricao = "teste";
-$valor = 150;
-$tipo = "Pessoal";
+ // Data atual
+$descricao = $_POST['descricao'];
+$valor = $_POST['valor'];
+$tipo = $_POST['tipo'];
 
 
 
 // Inserir dados no banco de dados
-$sql = "INSERT INTO despesas (NOW(), descricao, valor,tipo)
-        VALUES ('$dataDespesa', '$descricao','$valor','$tipo')";
+$sql = "INSERT INTO despesas (data_despesa, descricao, valor,tipo)
+        VALUES (now(), '$descricao','$valor','$tipo')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Cadastro realizado com sucesso!";

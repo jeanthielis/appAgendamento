@@ -177,9 +177,10 @@ $(document).ready(function () {
 
     $(document).on('click','#salvarDespesa',function(){
       var valorDespesa = $("#valorDespesa").val();
-       var descricaoDespesa = $("#descricaoDespesa").val();
-       var tipoDespesa = $("#tipoDespesa").val();
-       var dados = {valor:valorDespesa,descricao:descricaoDespesa,tipo:tipoDespesa}
+      var descricaoDespesa = $("#descricaoDespesa").val();
+      var tipoDespesa = $("#tipoDespesa").val();
+      var dados = {valor:valorDespesa,descricao:descricaoDespesa,tipo:tipoDespesa}
+
         $.ajax({
             url:"cadastrarDespesa.php",
             type:'post',
